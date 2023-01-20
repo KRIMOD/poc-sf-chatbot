@@ -1,3 +1,4 @@
+import { initChatBot } from "@/utils/chatbot";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import Script from "next/script";
@@ -101,6 +102,13 @@ const SeoHead = (props: any) => {
         ></meta>
         {/* <Script src="https://service.force.com/embeddedservice/5.0/esw.min.js" /> */}
       </Head>
+      <Script
+        id="gabin"
+        src="https://playful-panda-3dtfr6-dev-ed.trailblaze.my.salesforce.com/embeddedservice/5.0/esw.min.js"
+        onLoad={() => {
+          initChatBot();
+        }}
+      />
     </>
   );
 };
