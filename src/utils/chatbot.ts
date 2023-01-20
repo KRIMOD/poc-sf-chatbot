@@ -1,3 +1,4 @@
+// @ts-nocheck
 const initESW = (gslbBaseURL: string) => {
   embedded_svc.settings.displayHelpButton = true; //Or false
   embedded_svc.settings.language = ""; //For example, enter 'en' or 'en-US'
