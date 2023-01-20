@@ -1,22 +1,25 @@
-import Head from "next/head";
-import { Inter } from "@next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
+import SeoHead from "@/components/seo-head";
+import { useEffect } from "react";
+import { initESW } from "@/utils/chatbot";
+import Script from "next/script";
 
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>POC - SF chatbot</title>
-        <meta
-          name="description"
-          content="A simple proof of concept for adding SF einstein chatbot to nextjs"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <SeoHead title="POC - SF chatbot" />
       <main>
         <h1>Hello world</h1>
+        <Script
+          id="gabin"
+          src="https://playful-panda-3dtfr6-dev-ed.trailblaze.my.salesforce.com/embeddedservice/5.0/esw.min.js"
+          onLoad={() => {
+            if (!window.embedded_svc) {
+              initESW(null);
+            } else {
+              initESW("https://service.force.com");
+            }
+          }}
+        />
       </main>
     </>
   );
