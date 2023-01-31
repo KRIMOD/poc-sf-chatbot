@@ -6,6 +6,15 @@ const initESW = (gslbBaseURL: string) => {
   embedded_svc.settings.defaultMinimizedText = "Vous avez besoin d'aide ?"; //(Defaults to Chat with an Expert)
   embedded_svc.settings.disabledMinimizedText = "Vous avez besoin d'aide ?"; //(Defaults to Agent Offline)
 
+  embedded_svc.settings.extraPrechatFormDetails = [
+    {
+      label: "First Name",
+      value: "Test First Name",
+      displayToAgent: true,
+      transcriptFields: ["First_Name__c"],
+    },
+  ];
+
   embedded_svc.settings.enabledFeatures = ["LiveAgent"];
   embedded_svc.settings.entryFeature = "LiveAgent";
 
