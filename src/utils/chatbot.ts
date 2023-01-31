@@ -23,14 +23,14 @@ const initESW = (gslbBaseURL: string) => {
     "https://playful-panda-3dtfr6-dev-ed.trailblaze.my.salesforce-sites.com/liveAgentSetupFlow",
     gslbBaseURL,
     "00D8d0000092iIm",
-    "Astro_Group",
+    "Gabin_group",
     {
       baseLiveAgentContentURL:
         "https://c.la1-c2-lo2.salesforceliveagent.com/content",
       deploymentId: "5728d000000kW36",
-      buttonId: "5738d000000kWso",
+      buttonId: "5738d000000kWg1",
       baseLiveAgentURL: "https://d.la1-c2-lo2.salesforceliveagent.com/chat",
-      eswLiveAgentDevName: "Astro_Group",
+      eswLiveAgentDevName: "Gabin_group",
       isOfflineSupportEnabled: true,
     }
   );
