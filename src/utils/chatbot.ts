@@ -6,15 +6,29 @@ const initESW = (gslbBaseURL: string) => {
   embedded_svc.settings.defaultMinimizedText = "Vous avez besoin d'aide ?"; //(Defaults to Chat with an Expert)
   embedded_svc.settings.disabledMinimizedText = "Vous avez besoin d'aide ?"; //(Defaults to Agent Offline)
 
+  embedded_svc.settings.extraPrechatFormDetails = [
+    {
+      label: "First Name",
+      value: "John",
+      displayToAgen: true,
+      transcriptFields: ["First_Name__c"],
+    },
+    {
+      label: "Last Name",
+      value: "Doe",
+      displayToAgen: true,
+      transcriptFields: ["Last_Name__c"],
+    },
+    {
+      label: "Email",
+      value: "john@doe.com",
+      displayToAgen: true,
+      transcriptFields: ["Email__c"],
+    },
+  ];
+
   embedded_svc.settings.enabledFeatures = ["LiveAgent"];
   embedded_svc.settings.entryFeature = "LiveAgent";
-
-  embedded_svc.settings.prepopulatedPrechatFields = {
-    FirstName: "John",
-    LastName: "Doe",
-    Email: "john.doe@salesforce.com",
-    Subject: "Hello",
-  };
 
   embedded_svc.init(
     "https://playful-panda-3dtfr6-dev-ed.trailblaze.my.salesforce.com",
