@@ -1,7 +1,7 @@
 // @ts-nocheck
 const initESW = (gslbBaseURL: string) => {
   embedded_svc.settings.displayHelpButton = false; //Or false
-  embedded_svc.settings.language = "fr"; //For example, enter 'en' or 'en-US'
+  embedded_svc.settings.language = ""; //For example, enter 'en' or 'en-US'
 
   embedded_svc.settings.defaultMinimizedText = "Vous avez besoin d'aide ?"; //(Defaults to Chat with an Expert)
   embedded_svc.settings.disabledMinimizedText = "Vous avez besoin d'aide ?"; //(Defaults to Agent Offline)
