@@ -31,7 +31,7 @@ const initESW = (gslbBaseURL: string) => {
       buttonId: "5738d000000kWso",
       baseLiveAgentURL: "https://d.la1-c2-lo2.salesforceliveagent.com/chat",
       eswLiveAgentDevName: "Astro_Group",
-      isOfflineSupportEnabled: false,
+      isOfflineSupportEnabled: true,
     }
   );
 };
