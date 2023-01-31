@@ -8,12 +8,6 @@ const initESW = (gslbBaseURL: string) => {
 
   embedded_svc.settings.extraPrechatFormDetails = [
     {
-      label: "Transcript First Name",
-      value: "John",
-      displayToAgent: true,
-      transcriptFields: ["First_Name__c"],
-    },
-    {
       label: "Transcript Last Name",
       value: "Doe",
       displayToAgent: true,
@@ -24,6 +18,12 @@ const initESW = (gslbBaseURL: string) => {
       value: "john@doe.com",
       displayToAgent: true,
       transcriptFields: ["Email__c"],
+    },
+    {
+      label: "First Name",
+      value: "Test First Name",
+      displayToAgent: true,
+      transcriptFields: ["First_Name__c"],
     },
   ];
 
