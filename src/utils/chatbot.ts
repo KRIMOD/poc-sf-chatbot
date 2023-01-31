@@ -9,6 +9,22 @@ const initESW = (gslbBaseURL: string) => {
   embedded_svc.settings.enabledFeatures = ["LiveAgent"];
   embedded_svc.settings.entryFeature = "LiveAgent";
 
+  embedded_svc.setPrechatFormDetails({
+    prechatFields: [
+      {
+        label: "Email",
+        value: "gm_temam@esi.dz",
+        entityMaps: [
+          {
+            entityName: "Contact",
+            saveToTranscript: "Email",
+          },
+        ],
+        transcriptFields: ["Email"],
+      },
+    ],
+  });
+
   embedded_svc.init(
     "https://playful-panda-3dtfr6-dev-ed.trailblaze.my.salesforce.com",
     "https://playful-panda-3dtfr6-dev-ed.trailblaze.my.salesforce-sites.com/liveAgentSetupFlow",
