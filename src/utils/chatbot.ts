@@ -6,27 +6,6 @@ const initESW = (gslbBaseURL: string) => {
   embedded_svc.settings.defaultMinimizedText = "Vous avez besoin d'aide ?"; //(Defaults to Chat with an Expert)
   embedded_svc.settings.disabledMinimizedText = "Vous avez besoin d'aide ?"; //(Defaults to Agent Offline)
 
-  embedded_svc.settings.extraPrechatFormDetails = [
-    {
-      label: "Transcript Last Name",
-      value: "Doe",
-      displayToAgent: true,
-      transcriptFields: ["Last_Name__c"],
-    },
-    {
-      label: "Email",
-      value: "john@doe.com",
-      displayToAgent: true,
-      transcriptFields: ["Email__c"],
-    },
-    {
-      label: "First Name",
-      value: "Test First Name",
-      displayToAgent: true,
-      transcriptFields: ["First_Name__c"],
-    },
-  ];
-
   embedded_svc.settings.enabledFeatures = ["LiveAgent"];
   embedded_svc.settings.entryFeature = "LiveAgent";
 
@@ -35,15 +14,15 @@ const initESW = (gslbBaseURL: string) => {
     "https://playful-panda-3dtfr6-dev-ed.trailblaze.my.salesforce-sites.com/liveAgentSetupFlow",
     gslbBaseURL,
     "00D8d0000092iIm",
-    "Gabin_group",
+    "Astro_Group",
     {
       baseLiveAgentContentURL:
         "https://c.la1-c2-lo2.salesforceliveagent.com/content",
       deploymentId: "5728d000000kW36",
-      buttonId: "5738d000000kWg1",
+      buttonId: "5738d000000kWso",
       baseLiveAgentURL: "https://d.la1-c2-lo2.salesforceliveagent.com/chat",
-      eswLiveAgentDevName: "Gabin_group",
-      isOfflineSupportEnabled: true,
+      eswLiveAgentDevName: "Astro_Group",
+      isOfflineSupportEnabled: false,
     }
   );
 };
