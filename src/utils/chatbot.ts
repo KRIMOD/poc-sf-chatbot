@@ -3,9 +3,8 @@ const initESW = (gslbBaseURL: string) => {
   embedded_svc.settings.displayHelpButton = false; //Or false
   embedded_svc.settings.language = "fr"; //For example, enter 'en' or 'en-US'
 
-  embedded_svc.settings.defaultMinimizedText = "Je suis scientifique"; //(Defaults to Chat with an Expert)
-  embedded_svc.settings.disabledMinimizedText =
-    "Je suis scientifique non connecté"; //(Defaults to Agent Offline)
+  embedded_svc.settings.defaultMinimizedText = "Vous avez besoin d'aide ?"; //(Defaults to Chat with an Expert)
+  embedded_svc.settings.disabledMinimizedText = "Vous avez besoin d'aide ?"; //(Defaults to Agent Offline)
 
   embedded_svc.settings.enabledFeatures = ["LiveAgent"];
   embedded_svc.settings.entryFeature = "LiveAgent";
@@ -34,4 +33,9 @@ export const initChatBot = () => {
   } else {
     initESW("https://service.force.com");
   }
+};
+
+export const popChatBot = () => {
+  console.log("pop chat");
+  embedded_svc.bootstrapEmbeddedService();
 };

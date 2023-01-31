@@ -1,12 +1,7 @@
-// @ts-nocheck
 import SeoHead from "@/components/seo-head";
+import { popChatBot } from "@/utils/chatbot";
 
 export default function Home() {
-  const popChatBot = () => {
-    console.log("pop chat");
-    embedded_svc.bootstrapEmbeddedService();
-  };
-
   return (
     <>
       <SeoHead title="POC - SF chatbot" />
