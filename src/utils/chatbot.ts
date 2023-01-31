@@ -9,21 +9,57 @@ const initESW = (gslbBaseURL: string) => {
   embedded_svc.settings.enabledFeatures = ["LiveAgent"];
   embedded_svc.settings.entryFeature = "LiveAgent";
 
-  embedded_svc.setPrechatFormDetails({
-    prechatFields: [
-      {
-        label: "Email",
-        value: "gm_temam@esi.dz",
-        entityMaps: [
-          {
-            entityName: "Contact",
-            saveToTranscript: "Email",
-          },
-        ],
-        transcriptFields: ["Email"],
-      },
-    ],
-  });
+  embedded_svc.settings.extraPrechatInfo = [
+    {
+      entityFieldMaps: [
+        {
+          doCreate: false,
+          doFind: true,
+          fieldName: "LastName",
+          isExactMatch: true,
+          label: "Last Name",
+        },
+        {
+          doCreate: false,
+          doFind: true,
+          fieldName: "FirstName",
+          isExactMatch: true,
+          label: "First Name",
+        },
+        {
+          doCreate: false,
+          doFind: true,
+          fieldName: "Email",
+          isExactMatch: true,
+          label: "Email",
+        },
+      ],
+      entityName: "Contact",
+    },
+  ];
+
+  embedded_svc.settings.extraPrechatFormDetails = [
+    // {
+    //   label: "First Name",
+    //   value: "Krimo",
+    //   displayToAgent: true,
+    // },
+    // {
+    //   label: "Last Name",
+    //   value: "Temam",
+    //   displayToAgent: true,
+    // },
+    {
+      label: "Email",
+      value: "gm_temam@esi.dz",
+      displayToAgent: true,
+    },
+    {
+      label: "issue",
+      value: "Overriding your setup",
+      displayToAgent: true,
+    },
+  ];
 
   embedded_svc.init(
     "https://playful-panda-3dtfr6-dev-ed.trailblaze.my.salesforce.com",
