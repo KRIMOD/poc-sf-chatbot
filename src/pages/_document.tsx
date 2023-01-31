@@ -8,7 +8,7 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
-        <Script src="https://service.force.com/embeddedservice/5.0/esw.min.js" />
+        {/* <Script src="https://service.force.com/embeddedservice/5.0/esw.min.js" /> */}
       </body>
     </Html>
   );
