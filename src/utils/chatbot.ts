@@ -69,13 +69,6 @@ const initESW = (
           doFind: false,
           label: "Origin",
         },
-        {
-          isExactMatch: false,
-          fieldName: "Langage",
-          doCreate: true,
-          doFind: false,
-          label: "Langage",
-        },
       ],
     },
     {
@@ -121,7 +114,7 @@ const initESW = (
     {
       label: "Langage",
       value: lang,
-      transcriptFields: [],
+      transcriptFields: ["Langage__c"],
       displayToAgent: true,
     },
   ];
