@@ -94,7 +94,7 @@ const initESW = (
       displayToAgent: true,
     },
     {
-      label: "lastName",
+      label: "LastName",
       value: user.lastName,
       transcriptFields: [],
       displayToAgent: false,
@@ -108,12 +108,6 @@ const initESW = (
     {
       label: "issue",
       value: defaultIssue,
-      transcriptFields: [],
-      displayToAgent: true,
-    },
-    {
-      label: "Langage",
-      value: lang,
       transcriptFields: [],
       displayToAgent: true,
     },
