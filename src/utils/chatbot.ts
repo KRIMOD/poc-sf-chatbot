@@ -111,6 +111,12 @@ const initESW = (
       transcriptFields: [],
       displayToAgent: true,
     },
+    {
+      label: "Langage",
+      value: lang,
+      transcriptFields: [],
+      displayToAgent: true,
+    },
   ];
 
   embedded_svc.settings.enabledFeatures = ["LiveAgent"];
