@@ -1,19 +1,5 @@
 // @ts-nocheck
 
-// {
-//   isExactMatch: true,
-//   fieldName: "FirstName",
-//   doCreate: true,
-//   doFind: true,
-//   label: "firstName",
-// },
-// {
-//   isExactMatch: true,
-//   fieldName: "LastName",
-//   doCreate: true,
-//   doFind: true,
-//   label: "LastName",
-// },
 const initESW = (
   gslbBaseURL: string,
   lang: string,
@@ -34,6 +20,20 @@ const initESW = (
       linkToEntityField: "ContactId",
       saveToTranscript: "Contact",
       entityFieldMaps: [
+        {
+          isExactMatch: true,
+          fieldName: "FirstName",
+          doCreate: true,
+          doFind: true,
+          label: "firstName",
+        },
+        {
+          isExactMatch: true,
+          fieldName: "LastName",
+          doCreate: true,
+          doFind: true,
+          label: "LastName",
+        },
         {
           isExactMatch: true,
           fieldName: "Email",
