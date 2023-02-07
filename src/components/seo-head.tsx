@@ -98,13 +98,13 @@ const SeoHead = (props: any) => {
         ></meta>
       </Head>
       {/* <Script src="https://service.force.com/embeddedservice/5.0/esw.min.js" /> */}
-      <Script
+      {/* <Script
         id="gabin"
         src="https://playful-panda-3dtfr6-dev-ed.trailblaze.my.salesforce.com/embeddedservice/5.0/esw.min.js"
         onLoad={() => {
           initChatBot();
         }}
-      />
+      /> */}
     </>
   );
 };

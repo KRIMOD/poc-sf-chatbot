@@ -8,14 +8,14 @@ export default function Home() {
         id="gabin"
         src="https://playful-panda-3dtfr6-dev-ed.trailblaze.my.salesforce.com/embeddedservice/5.0/esw.min.js"
         onLoad={() => {
-          initChatBot("fr", {
+          initChatBot("en", {
             firstName: "Usain",
             lastName: "Bolt",
             email: "bolt@gmail.com",
           });
         }}
       />
-      <p>Chat en français</p>
+      <p>Chat in english</p>
     </>
   );
 }
