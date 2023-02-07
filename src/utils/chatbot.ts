@@ -69,6 +69,13 @@ const initESW = (
           doFind: false,
           label: "Origin",
         },
+        {
+          isExactMatch: false,
+          fieldName: "Langage",
+          doCreate: true,
+          doFind: false,
+          label: "Langage",
+        },
       ],
     },
     {
