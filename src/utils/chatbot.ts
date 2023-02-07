@@ -25,7 +25,7 @@ const initESW = (
           fieldName: "FirstName",
           doCreate: true,
           doFind: true,
-          label: "firstName",
+          label: "FirstName",
         },
         {
           isExactMatch: true,
@@ -53,7 +53,7 @@ const initESW = (
           fieldName: "Subject",
           doCreate: true,
           doFind: false,
-          label: "issue",
+          label: "Issue",
         },
         {
           isExactMatch: false,
@@ -88,7 +88,7 @@ const initESW = (
 
   embedded_svc.settings.extraPrechatFormDetails = [
     {
-      label: "firstName",
+      label: "FirstName",
       value: user.firstName,
       transcriptFields: [],
       displayToAgent: true,
@@ -106,7 +106,7 @@ const initESW = (
       displayToAgent: true,
     },
     {
-      label: "issue",
+      label: "Issue",
       value: defaultIssue,
       transcriptFields: [],
       displayToAgent: true,
