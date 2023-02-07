@@ -88,13 +88,13 @@ const initESW = (
 
   embedded_svc.settings.extraPrechatFormDetails = [
     {
-      label: "FirstName",
+      label: "firstName",
       value: user.firstName,
       transcriptFields: [],
       displayToAgent: true,
     },
     {
-      label: "LastName",
+      label: "lastName",
       value: user.lastName,
       transcriptFields: [],
       displayToAgent: false,
@@ -106,7 +106,7 @@ const initESW = (
       displayToAgent: true,
     },
     {
-      label: "Issue",
+      label: "issue",
       value: defaultIssue,
       transcriptFields: [],
       displayToAgent: true,
