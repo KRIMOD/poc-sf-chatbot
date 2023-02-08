@@ -1,19 +1,4 @@
-// @ts-nocheck
-
-// {
-//   isExactMatch: false,
-//   fieldName: "Langage",
-//   doCreate: true,
-//   doFind: false,
-//   label: "Langage",
-// },
-
-const initESW = (
-  gslbBaseURL: string,
-  lang: string,
-  user: User,
-  defaultIssue: string
-) => {
+const initESW = (gslbBaseURL, lang, user, defaultIssue) => {
   embedded_svc.settings.displayHelpButton = true; //Or false
   embedded_svc.settings.language = lang; //For example, enter 'en' or 'en-US'
 
@@ -155,23 +140,19 @@ const initESW = (
   );
 };
 
-export function initChatBot(
-  lang: "fr" | "en",
-  user: {
-    firstName: string;
-    lastName: string;
-    email: string;
-  },
+/**
+ * @param {'fr' | 'en'} lang
+ * @param {{firstName: string, lastName: string, email: string}} user - The employee who is responsible for the project.
+ * @param {String?} defaultIssue - The employee's department.
+ */
+export const initChatBot = (
+  lang,
+  user,
   defaultIssue = "Besoin d'aide déclaration"
-) {
+) => {
   if (!window.embedded_svc) {
     initESW(null, lang, user, defaultIssue);
   } else {
     initESW("https://service.force.com", lang, user, defaultIssue);
   }
-}
-
-export const popChatBot = () => {
-  console.log("pop chat");
-  embedded_svc.bootstrapEmbeddedService();
 };
