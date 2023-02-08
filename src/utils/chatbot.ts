@@ -1,5 +1,13 @@
 // @ts-nocheck
 
+// {
+//   isExactMatch: false,
+//   fieldName: "Langage",
+//   doCreate: true,
+//   doFind: false,
+//   label: "Langage",
+// },
+
 const initESW = (
   gslbBaseURL: string,
   lang: string,
@@ -68,13 +76,6 @@ const initESW = (
           doCreate: true,
           doFind: false,
           label: "Origin",
-        },
-        {
-          isExactMatch: false,
-          fieldName: "Langage",
-          doCreate: true,
-          doFind: false,
-          label: "Langage",
         },
       ],
     },
