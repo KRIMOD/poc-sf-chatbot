@@ -127,7 +127,7 @@ const initESW = (
     },
     {
       label: "Origin",
-      value: "Chat " + lang,
+      value: "Web",
       transcriptFields: [],
       displayToAgent: true,
     },
