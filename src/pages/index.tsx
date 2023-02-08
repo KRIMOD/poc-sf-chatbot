@@ -5,8 +5,12 @@ export default function Home() {
   return (
     <>
       <Script
-        id="gabin"
-        src="https://playful-panda-3dtfr6-dev-ed.trailblaze.my.salesforce.com/embeddedservice/5.0/esw.min.js"
+        id="fb-sf-chat"
+        src="https://service.force.com/embeddedservice/5.0/esw.min.js"
+      />
+      <Script
+        id="sf-chat"
+        src="https://valobat--chatbot.sandbox.my.salesforce.com/embeddedservice/5.0/esw.min.js"
         onLoad={() => {
           initChatBot(
             "fr",
