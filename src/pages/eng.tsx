@@ -1,7 +1,7 @@
-import { initChatBot } from "@/utils/chatbot";
+import { initChatBot } from "@/utils/sf-chat";
 import Script from "next/script";
 
-export default function Home() {
+export default function HomeEn() {
   return (
     <>
       <Script
@@ -15,11 +15,11 @@ export default function Home() {
               lastName: "Bolt",
               email: "bolt@gmail.com",
             },
-            "Need help ?"
+            "Need help with declaration"
           );
         }}
       />
-      <p>Chat in english</p>
+      <p>Chat en anglais</p>
     </>
   );
 }
