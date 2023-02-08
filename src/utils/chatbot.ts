@@ -130,18 +130,19 @@ const initESW = (
   embedded_svc.settings.entryFeature = "LiveAgent";
 
   embedded_svc.init(
-    "https://playful-panda-3dtfr6-dev-ed.trailblaze.my.salesforce.com",
-    "https://playful-panda-3dtfr6-dev-ed.trailblaze.my.salesforce-sites.com/liveAgentSetupFlow",
+    "https://valobat--chatbot.sandbox.my.salesforce.com",
+    "https://valobat--chatbot.sandbox.my.site.com/callcenter",
     gslbBaseURL,
-    "00D8d0000092iIm",
-    "Valobot_group",
+    "00DAW000001Jllp",
+    "Chat_Adherent",
     {
       baseLiveAgentContentURL:
-        "https://c.la1-c2-lo2.salesforceliveagent.com/content",
-      deploymentId: "5728d000000kW36",
-      buttonId: "5738d000000kX5b",
-      baseLiveAgentURL: "https://d.la1-c2-lo2.salesforceliveagent.com/chat",
-      eswLiveAgentDevName: "Valobot_group",
+        "https://c.la2s-core1.sfdc-urlt2q.salesforceliveagent.com/content",
+      deploymentId: "572AW000000xmBt",
+      buttonId: "573AW000000ECsX",
+      baseLiveAgentURL:
+        "https://d.la2s-core1.sfdc-urlt2q.salesforceliveagent.com/chat",
+      eswLiveAgentDevName: "Chat_Adherent",
       isOfflineSupportEnabled: true,
     }
   );
