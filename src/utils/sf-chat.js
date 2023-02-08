@@ -1,9 +1,22 @@
-const initESW = (gslbBaseURL, lang, user, defaultIssue) => {
+/**
+ * @param {'fr' | 'en'} lang
+ * @param {{firstName: string, lastName: string, email: string}} user - The employee who is responsible for the project.
+ * @param {String?} defaultIssue - The employee's department.
+ */
+export const initChatBot = (lang, user, defaultIssue) => {
+  const gslbBaseURL = window.embedded_svc ? "https://service.force.com" : null;
+
   embedded_svc.settings.displayHelpButton = true; //Or false
   embedded_svc.settings.language = lang; //For example, enter 'en' or 'en-US'
 
-  embedded_svc.settings.defaultMinimizedText = "Vous avez besoin d'aide ?"; //(Defaults to Chat with an Expert)
-  embedded_svc.settings.disabledMinimizedText = "Vous avez besoin d'aide ?"; //(Defaults to Agent Offline)
+  embedded_svc.settings.defaultMinimizedText =
+    lang === "fr" ? "Besoin d'aide ?" : "Need help ?"; //(Defaults to Chat with an Expert)
+  embedded_svc.settings.disabledMinimizedText =
+    lang === "fr" ? "Besoin d'aide ?" : "Need help ?"; //(Defaults to Agent Offline)
+
+  embedded_svc.settings.prepopulatedPrechatFields = {
+    Email: "bolt@gmail.com",
+  };
 
   embedded_svc.settings.extraPrechatInfo = [
     {
@@ -124,7 +137,7 @@ const initESW = (gslbBaseURL, lang, user, defaultIssue) => {
   embedded_svc.init(
     "https://valobat--chatbot.sandbox.my.salesforce.com",
     "https://valobat--chatbot.sandbox.my.site.com/callcenter",
-    gslbBaseURL,
+    gslbBaseURL || null,
     "00DAW000001Jllp",
     "Chat_Adherent",
     {
@@ -140,19 +153,6 @@ const initESW = (gslbBaseURL, lang, user, defaultIssue) => {
   );
 };
 
-/**
- * @param {'fr' | 'en'} lang
- * @param {{firstName: string, lastName: string, email: string}} user - The employee who is responsible for the project.
- * @param {String?} defaultIssue - The employee's department.
- */
-export const initChatBot = (
-  lang,
-  user,
-  defaultIssue = "Besoin d'aide déclaration"
-) => {
-  if (!window.embedded_svc) {
-    initESW(null, lang, user, defaultIssue);
-  } else {
-    initESW("https://service.force.com", lang, user, defaultIssue);
-  }
+export const popChatBox = () => {
+  embedded_svc.bootstrapEmbeddedService();
 };

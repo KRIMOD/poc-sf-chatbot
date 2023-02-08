@@ -1,24 +1,27 @@
-// @ts-nocheck
+interface User {
+  firstName: string;
+  lastName: string;
+  email: string;
+}
 
-// {
-//   isExactMatch: false,
-//   fieldName: "Langage",
-//   doCreate: true,
-//   doFind: false,
-//   label: "Langage",
-// },
-
-const initESW = (
-  gslbBaseURL: string,
-  lang: string,
+export const initChatBot = (
+  lang: "fr" | "en",
   user: User,
   defaultIssue: string
 ) => {
+  const gslbBaseURL = window.embedded_svc ? "https://service.force.com" : null;
+
   embedded_svc.settings.displayHelpButton = true; //Or false
   embedded_svc.settings.language = lang; //For example, enter 'en' or 'en-US'
 
-  embedded_svc.settings.defaultMinimizedText = "Vous avez besoin d'aide ?"; //(Defaults to Chat with an Expert)
-  embedded_svc.settings.disabledMinimizedText = "Vous avez besoin d'aide ?"; //(Defaults to Agent Offline)
+  embedded_svc.settings.defaultMinimizedText =
+    lang === "fr" ? "Besoin d'aide ?" : "Need help ?"; //(Defaults to Chat with an Expert)
+  embedded_svc.settings.disabledMinimizedText =
+    lang === "fr" ? "Besoin d'aide ?" : "Need help ?"; //(Defaults to Agent Offline)
+
+  embedded_svc.settings.prepopulatedPrechatFields = {
+    Email: "bolt@gmail.com",
+  };
 
   embedded_svc.settings.extraPrechatInfo = [
     {
@@ -139,7 +142,7 @@ const initESW = (
   embedded_svc.init(
     "https://valobat--chatbot.sandbox.my.salesforce.com",
     "https://valobat--chatbot.sandbox.my.site.com/callcenter",
-    gslbBaseURL,
+    gslbBaseURL || null,
     "00DAW000001Jllp",
     "Chat_Adherent",
     {
@@ -155,23 +158,6 @@ const initESW = (
   );
 };
 
-export function initChatBot(
-  lang: "fr" | "en",
-  user: {
-    firstName: string;
-    lastName: string;
-    email: string;
-  },
-  defaultIssue = "Besoin d'aide déclaration"
-) {
-  if (!window.embedded_svc) {
-    initESW(null, lang, user, defaultIssue);
-  } else {
-    initESW("https://service.force.com", lang, user, defaultIssue);
-  }
-}
-
-export const popChatBot = () => {
-  console.log("pop chat");
+export const popChatBox = () => {
   embedded_svc.bootstrapEmbeddedService();
 };
