@@ -21,7 +21,10 @@ export const initChatBot = (
     lang === "fr" ? "Besoin d'aide ?" : "Need help ?"; //(Defaults to Agent Offline)
 
   embedded_svc.settings.prepopulatedPrechatFields = {
-    Email: "bolt@gmail.com",
+    Subject:
+      lang === "fr"
+        ? "Besoin d'aide avec ma déclaration"
+        : "Need help with my declaration",
   };
 
   embedded_svc.settings.extraPrechatInfo = [
