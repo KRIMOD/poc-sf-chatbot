@@ -125,6 +125,12 @@ const initESW = (
       transcriptFields: ["Langage__c"],
       displayToAgent: true,
     },
+    {
+      label: "Origin",
+      value: "Chat " + lang,
+      transcriptFields: [],
+      displayToAgent: true,
+    },
   ];
 
   embedded_svc.settings.enabledFeatures = ["LiveAgent"];
