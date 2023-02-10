@@ -5,14 +5,15 @@ interface User {
   email: string;
 }
 
-export const initChatBot = (
+export function initChat(
   lang: "fr" | "en",
   user: User,
-  defaultIssue: string
-) => {
+  defaultIssue: string,
+  displayHelpButton = true
+) {
   const gslbBaseURL = window.embedded_svc ? "https://service.force.com" : null;
 
-  embedded_svc.settings.displayHelpButton = true; //Or false
+  embedded_svc.settings.displayHelpButton = displayHelpButton; //Or false
   embedded_svc.settings.language = lang; //For example, enter 'en' or 'en-US'
 
   embedded_svc.settings.defaultMinimizedText =
@@ -160,7 +161,7 @@ export const initChatBot = (
       isOfflineSupportEnabled: true,
     }
   );
-};
+}
 
 export const popChatBox = () => {
   embedded_svc.bootstrapEmbeddedService();

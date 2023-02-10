@@ -1,4 +1,4 @@
-import { initChatBot } from "@/utils/sf-chat";
+import { initChat } from "@/utils/sf-chat";
 import Script from "next/script";
 
 export default function HomeEn() {
@@ -8,14 +8,15 @@ export default function HomeEn() {
         id="sf-chat"
         src="https://valobat--chatbot.sandbox.my.salesforce.com/embeddedservice/5.0/esw.min.js"
         onLoad={() => {
-          initChatBot(
+          initChat(
             "en",
             {
               firstName: "Usain",
               lastName: "Bolt",
               email: "bolt@gmail.com",
             },
-            "Need help with declaration"
+            "Need help with declaration",
+            true
           );
         }}
       />
