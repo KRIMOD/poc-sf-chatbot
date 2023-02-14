@@ -17,11 +17,11 @@ export function initChat(
   embedded_svc.settings.language = lang; //For example, enter 'en' or 'en-US'
 
   embedded_svc.settings.defaultMinimizedText =
-    lang === "fr" ? "Besoin d'aide ?" : "Need help ?"; //(Defaults to Chat with an Expert)
+    lang === "fr" ? "Besoin d'aide ? ON" : "Need help ? ON"; //(Defaults to Chat with an Expert)
   embedded_svc.settings.disabledMinimizedText =
-    lang === "fr" ? "Besoin d'aide ?" : "Need help ?"; //(Defaults to Agent Offline)
+    lang === "fr" ? "Besoin d'aide ? OFF 1" : "Need help ? OFF 1"; //(Defaults to Agent Offline)
   embedded_svc.settings.offlineSupportMinimizedText =
-    lang === "fr" ? "Contactez-nous" : "Contact-Us"; //(Defaults to Agent Offline)
+    lang === "fr" ? "Contactez-nous OFF 2" : "Contact-Us OFF 2"; //(Defaults to Agent Offline)
 
   embedded_svc.settings.prepopulatedPrechatFields = {
     Subject:
