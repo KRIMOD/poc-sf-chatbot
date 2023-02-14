@@ -3,21 +3,21 @@ import Script from "next/script";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [displayHelpButton, setDisplayHelpButton] = useState(true);
+  // const [displayHelpButton, setDisplayHelpButton] = useState(true);
   const [scriptLoaded, setScriptLoaded] = useState(false);
 
-  useEffect(() => {
-    console.log("the button is : " + displayHelpButton);
-    // scriptLoaded &&
-    document.getElementsByClassName(
-      "embeddedServiceHelpButton"
-      // @ts-ignore
-    )[0].style.visibility = displayHelpButton ? "visible" : "hidden";
-  }, [scriptLoaded, displayHelpButton]);
+  // useEffect(() => {
+  //   console.log("the button is : " + displayHelpButton);
+  //   // scriptLoaded &&
+  //   document.getElementsByClassName(
+  //     "embeddedServiceHelpButton"
+  //     // @ts-ignore
+  //   )[0].style.visibility = displayHelpButton ? "visible" : "hidden";
+  // }, [scriptLoaded, displayHelpButton]);
 
-  const handleChange = () => {
-    setDisplayHelpButton(!displayHelpButton);
-  };
+  // const handleChange = () => {
+  //   setDisplayHelpButton(!displayHelpButton);
+  // };
 
   return (
     <>
@@ -38,13 +38,13 @@ export default function Home() {
         }}
       />
       <p>Chat en français</p>
-      <input
+      {/* <input
         type="checkbox"
         id="displayHelpButton"
         onChange={handleChange}
         checked={displayHelpButton}
-      />
-      <label htmlFor="displayHelpButton">Toggle help button</label>
+      /> */}
+      {/* <label htmlFor="displayHelpButton">Toggle help button</label> */}
     </>
   );
 }
