@@ -20,6 +20,8 @@ export function initChat(
     lang === "fr" ? "Besoin d'aide ?" : "Need help ?"; //(Defaults to Chat with an Expert)
   embedded_svc.settings.disabledMinimizedText =
     lang === "fr" ? "Besoin d'aide ?" : "Need help ?"; //(Defaults to Agent Offline)
+  embedded_svc.settings.offlineSupportMinimizedText = 
+    lang === "fr" ? "Besoin d'aide ?" : "Need help ?"; //(Defaults to Agent Offline)
 
   embedded_svc.settings.prepopulatedPrechatFields = {
     Subject:
