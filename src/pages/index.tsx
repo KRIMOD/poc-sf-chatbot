@@ -11,6 +11,7 @@ export default function Home() {
     // scriptLoaded &&
     document.getElementsByClassName(
       "embeddedServiceHelpButton"
+      // @ts-ignore
     )[0].style.visibility = displayHelpButton ? "visible" : "hidden";
   }, [scriptLoaded, displayHelpButton]);
 
