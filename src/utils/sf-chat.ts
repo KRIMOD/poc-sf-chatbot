@@ -127,7 +127,7 @@ export function initChat(
     {
       label: "Email",
       value: user.email,
-      transcriptFields: [],
+      transcriptFields: ["Email__c"],
       displayToAgent: true,
     },
     {
