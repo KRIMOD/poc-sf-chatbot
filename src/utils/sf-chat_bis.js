@@ -3,19 +3,24 @@
  * @param {{firstName: string, lastName: string, email: string}} user - The employee who is responsible for the project.
  * @param {String?} defaultIssue - The employee's department.
  */
-export const initChatBot = (lang, user, defaultIssue) => {
+export function initChat(lang, user, defaultIssue, displayHelpButton = true) {
   const gslbBaseURL = window.embedded_svc ? "https://service.force.com" : null;
 
-  embedded_svc.settings.displayHelpButton = true; //Or false
+  embedded_svc.settings.displayHelpButton = displayHelpButton; //Or false
   embedded_svc.settings.language = lang; //For example, enter 'en' or 'en-US'
 
   embedded_svc.settings.defaultMinimizedText =
-    lang === "fr" ? "Besoin d'aide ?" : "Need help ?"; //(Defaults to Chat with an Expert)
+    lang === "fr" ? "Besoin d'aide ? ON" : "Need help ? ON"; //(Defaults to Chat with an Expert)
   embedded_svc.settings.disabledMinimizedText =
-    lang === "fr" ? "Besoin d'aide ?" : "Need help ?"; //(Defaults to Agent Offline)
+    lang === "fr" ? "Besoin d'aide ? OFF 1" : "Need help ? OFF 1"; //(Defaults to Agent Offline)
+  embedded_svc.settings.offlineSupportMinimizedText =
+    lang === "fr" ? "Contactez-nous OFF 2" : "Contact-Us OFF 2"; //(Defaults to Agent Offline)
 
   embedded_svc.settings.prepopulatedPrechatFields = {
-    Email: "bolt@gmail.com",
+    Subject:
+      lang === "fr"
+        ? "Besoin d'aide avec ma déclaration"
+        : "Need help with my declaration",
   };
 
   embedded_svc.settings.extraPrechatInfo = [
@@ -134,6 +139,15 @@ export const initChatBot = (lang, user, defaultIssue) => {
   embedded_svc.settings.enabledFeatures = ["LiveAgent"];
   embedded_svc.settings.entryFeature = "LiveAgent";
 
+  // toutEvent();
+  embedded_svc.addEventHandler("onAvailability", function (data) {
+    console.log(data);
+    if (document.getElementById("SuppliedEmail") !== null) {
+      document.getElementById("SuppliedEmail").value = "bolt@gmail.com";
+    }
+    // console.log(document.getElementById("SuppliedEmail"));
+  });
+
   embedded_svc.init(
     "https://valobat--chatbot.sandbox.my.salesforce.com",
     "https://valobat--chatbot.sandbox.my.site.com/callcenter",
@@ -151,8 +165,31 @@ export const initChatBot = (lang, user, defaultIssue) => {
       isOfflineSupportEnabled: true,
     }
   );
-};
+
+  initAndHideExternalKeys(user.email, defaultIssue);
+}
 
 export const popChatBox = () => {
   embedded_svc.bootstrapEmbeddedService();
+};
+
+const initAndHideExternalKeys = (email, defaultOfflineIssue) => {
+  embedded_svc.addEventHandler("onAvailability", function (data) {
+    if (document.getElementById("SuppliedEmail") !== null) {
+      // email
+      const elEmail = document.getElementById("SuppliedEmail");
+      elEmail.value = "bolt@gmail.com";
+      elEmail.dispatchEvent(new Event("change", { bubbles: true }));
+      const hiddenElEmail = (document.getElementsByClassName(
+        "inputEmail"
+      )[0].style.visibility = "hidden");
+      // subject
+      const elSubject = document.getElementById("Subject");
+      elSubject.value = defaultOfflineIssue;
+      elSubject.dispatchEvent(new Event("change", { bubbles: true }));
+      const hiddenElSubject = (document.getElementsByClassName(
+        "inputText"
+      )[1].style.visibility = "hidden");
+    }
+  });
 };

@@ -1,4 +1,4 @@
-//@ts-nocheck
+// @ts-nocheck
 interface User {
   firstName: string;
   lastName: string;
@@ -173,6 +173,17 @@ export function initChat(
     }
   );
 
+  initAndHideExternalKeys(user.email, defaultIssue);
+}
+
+export const popChatBox = () => {
+  embedded_svc.bootstrapEmbeddedService();
+};
+
+const initAndHideExternalKeys = (
+  email: string,
+  defaultOfflineIssue: string
+) => {
   embedded_svc.addEventHandler("onAvailability", function (data) {
     if (document.getElementById("SuppliedEmail") !== null) {
       // email
@@ -184,29 +195,11 @@ export function initChat(
       )[0].style.visibility = "hidden");
       // subject
       const elSubject = document.getElementById("Subject");
-      elSubject.value = defaultIssue;
+      elSubject.value = defaultOfflineIssue;
       elSubject.dispatchEvent(new Event("change", { bubbles: true }));
       const hiddenElSubject = (document.getElementsByClassName(
         "inputText"
       )[1].style.visibility = "hidden");
     }
-  });
-}
-
-export const popChatBox = () => {
-  embedded_svc.bootstrapEmbeddedService();
-};
-const toutEvent = () => {
-  embedded_svc.addEventHandler("onAvailability", function (data) {
-    console.log(
-      "onAvailability event was fired. Agent availability status is " +
-        data.isAgentAvailable
-        ? "online"
-        : "offline"
-    );
-    if (document.getElementById("SuppliedEmail") !== null) {
-      document.getElementById("SuppliedEmail").value = "bolt@gmail.com";
-    }
-    // console.log(document.getElementById("SuppliedEmail"));
   });
 };
