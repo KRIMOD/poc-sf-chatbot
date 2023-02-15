@@ -146,6 +146,9 @@ export function initChat(
   embedded_svc.settings.enabledFeatures = ["LiveAgent"];
   embedded_svc.settings.entryFeature = "LiveAgent";
 
+  embedded_svc.addEventHandler("onHelpButtonClick", function (data) {
+    console.log("onHelpButtonClick event was fired.");
+  });
   embedded_svc.init(
     "https://valobat--chatbot.sandbox.my.salesforce.com",
     "https://valobat--chatbot.sandbox.my.site.com/callcenter",
@@ -163,9 +166,6 @@ export function initChat(
       isOfflineSupportEnabled: true,
     }
   );
-
-  document.getElementById("SuppliedEmail").value = user.email;
-  document.getElementsByClassName("inputEmail")[0].style.visibility = "hidden";
 }
 
 export const popChatBox = () => {

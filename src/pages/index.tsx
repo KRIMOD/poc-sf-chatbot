@@ -3,20 +3,16 @@ import Script from "next/script";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  // const [displayHelpButton, setDisplayHelpButton] = useState(true);
   const [scriptLoaded, setScriptLoaded] = useState(false);
 
-  // useEffect(() => {
-  //   console.log("the button is : " + displayHelpButton);
-  //   // scriptLoaded &&
-  //   document.getElementsByClassName(
-  //     "embeddedServiceHelpButton"
-  //     // @ts-ignore
-  //   )[0].style.visibility = displayHelpButton ? "visible" : "hidden";
-  // }, [scriptLoaded, displayHelpButton]);
+  useEffect(() => {
+    // @ts-expect-error
+    document.getElementById("SuppliedEmail").value = user.email;
+    // @ts-expect-error
+    document.getElementsByClassName("inputEmail")[0].style.visibility =
+      "hidden";
+  }, [scriptLoaded]);
 
-  // const handleChange = () => {
-  //   setDisplayHelpButton(!displayHelpButton);
   // };
 
   return (
