@@ -5,13 +5,13 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const [scriptLoaded, setScriptLoaded] = useState(false);
 
-  useEffect(() => {
-    // @ts-expect-error
-    document.getElementById("SuppliedEmail").value = "bolt@gmail.com";
-    // @ts-expect-error
-    document.getElementsByClassName("inputEmail")[0].style.visibility =
-      "hidden";
-  }, [scriptLoaded]);
+  // useEffect(() => {
+  //   // @ts-expect-error
+  //   document.getElementById("SuppliedEmail").value = "bolt@gmail.com";
+  //   // @ts-expect-error
+  //   document.getElementsByClassName("inputEmail")[0].style.visibility =
+  //     "hidden";
+  // }, [scriptLoaded]);
 
   // };
 
