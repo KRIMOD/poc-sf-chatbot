@@ -165,6 +165,8 @@ export function initChat(
       isOfflineSupportEnabled: true,
     }
   );
+
+  toutEvent();
 }
 
 export const popChatBox = () => {
