@@ -149,6 +149,10 @@ export function initChat(
   embedded_svc.addEventHandler("onHelpButtonClick", function (data) {
     console.log("onHelpButtonClick event was fired.");
   });
+  embedded_svc.addEventHandler("onSettingsCallCompleted", function (data) {
+    console.log("onSettingsCallCompleted event was fired.");
+  });
+
   embedded_svc.init(
     "https://valobat--chatbot.sandbox.my.salesforce.com",
     "https://valobat--chatbot.sandbox.my.site.com/callcenter",
