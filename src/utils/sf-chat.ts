@@ -313,6 +313,9 @@ const toutEvent = () => {
         ? "online"
         : "offline"
     );
-    console.log(document.getElementById("SuppliedEmail") + " d");
+    if (document.getElementById("SuppliedEmail") !== null) {
+      document.getElementById("SuppliedEmail").value = "bolt@gmail.com";
+    }
+    // console.log(document.getElementById("SuppliedEmail"));
   });
 };
