@@ -30,6 +30,13 @@ export function initChat(
         : "Need help with my declaration",
   };
 
+  embedded_svc.settings.prepopulatedPrechatFields = {
+    FirstName: user.firstName,
+    LastName: user.lastName,
+    Email: user.email,
+    // Subject: "Hello",
+  };
+
   embedded_svc.settings.extraPrechatInfo = [
     {
       entityName: "Contact",
