@@ -146,7 +146,7 @@ export function initChat(
   embedded_svc.settings.enabledFeatures = ["LiveAgent"];
   embedded_svc.settings.entryFeature = "LiveAgent";
 
-  toutEvent();
+  // toutEvent();
 
   embedded_svc.init(
     "https://valobat--chatbot.sandbox.my.salesforce.com",
@@ -166,7 +166,7 @@ export function initChat(
     }
   );
 
-  toutEvent();
+  // toutEvent();
 }
 
 export const popChatBox = () => {
