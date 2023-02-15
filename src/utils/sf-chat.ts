@@ -173,7 +173,24 @@ export function initChat(
     }
   );
 
-  // toutEvent();
+  embedded_svc.addEventHandler("onAvailability", function (data) {
+    if (document.getElementById("SuppliedEmail") !== null) {
+      // email
+      const elEmail = document.getElementById("SuppliedEmail");
+      elEmail.value = "bolt@gmail.com";
+      elEmail.dispatchEvent(new Event("change", { bubbles: true }));
+      const hiddenElEmail = (document.getElementsByClassName(
+        "inputEmail"
+      )[0].style.visibility = "hidden");
+      // subject
+      const elSubject = document.getElementById("Subject");
+      elSubject.value = defaultIssue;
+      elSubject.dispatchEvent(new Event("change", { bubbles: true }));
+      const hiddenElSubject = (document.getElementsByClassName(
+        "inputText"
+      )[1].style.visibility = "hidden");
+    }
+  });
 }
 
 export const popChatBox = () => {
