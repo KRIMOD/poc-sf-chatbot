@@ -11,9 +11,6 @@ export function initChat(
   defaultIssue: string,
   displayHelpButton = true
 ) {
-  document.getElementById("SuppliedEmail").value = user.email;
-  document.getElementsByClassName("inputEmail")[0].style.visibility = "hidden";
-
   const gslbBaseURL = window.embedded_svc ? "https://service.force.com" : null;
 
   embedded_svc.settings.displayHelpButton = displayHelpButton; //Or false
@@ -166,6 +163,9 @@ export function initChat(
       isOfflineSupportEnabled: true,
     }
   );
+
+  document.getElementById("SuppliedEmail").value = user.email;
+  document.getElementsByClassName("inputEmail")[0].style.visibility = "hidden";
 }
 
 export const popChatBox = () => {
