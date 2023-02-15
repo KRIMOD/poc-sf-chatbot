@@ -1,20 +1,7 @@
 import { initChat } from "@/utils/sf-chat";
 import Script from "next/script";
-import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [scriptLoaded, setScriptLoaded] = useState(false);
-
-  // useEffect(() => {
-  //   // @ts-expect-error
-  //   document.getElementById("SuppliedEmail").value = "bolt@gmail.com";
-  //   // @ts-expect-error
-  //   document.getElementsByClassName("inputEmail")[0].style.visibility =
-  //     "hidden";
-  // }, [scriptLoaded]);
-
-  // };
-
   return (
     <>
       <Script
@@ -30,17 +17,9 @@ export default function Home() {
             },
             "Besoin d'aide sur déclaration"
           );
-          setScriptLoaded(true);
         }}
       />
       <p>Chat en français</p>
-      {/* <input
-        type="checkbox"
-        id="displayHelpButton"
-        onChange={handleChange}
-        checked={displayHelpButton}
-      /> */}
-      {/* <label htmlFor="displayHelpButton">Toggle help button</label> */}
     </>
   );
 }
