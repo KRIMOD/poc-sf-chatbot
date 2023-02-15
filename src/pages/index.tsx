@@ -7,7 +7,7 @@ export default function Home() {
 
   useEffect(() => {
     // @ts-expect-error
-    document.getElementById("SuppliedEmail").value = user.email;
+    document.getElementById("SuppliedEmail").value = "bolt@gmail.com";
     // @ts-expect-error
     document.getElementsByClassName("inputEmail")[0].style.visibility =
       "hidden";
