@@ -303,6 +303,7 @@ const toutEvent = () => {
         ? "online"
         : "offline"
     );
+    console.log(document.getElementById("SuppliedEmail"));
   });
 
   embedded_svc.addEventHandler("onAvailability", function (data) {
@@ -312,5 +313,6 @@ const toutEvent = () => {
         ? "online"
         : "offline"
     );
+    console.log(document.getElementById("SuppliedEmail") + " d");
   });
 };
