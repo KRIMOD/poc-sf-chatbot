@@ -11,6 +11,9 @@ export function initChat(
   defaultIssue: string,
   displayHelpButton = true
 ) {
+  document.getElementById("SuppliedEmail").value = user.email;
+  document.getElementsByClassName("inputEmail")[0].style.visibility = "hidden";
+
   const gslbBaseURL = window.embedded_svc ? "https://service.force.com" : null;
 
   embedded_svc.settings.displayHelpButton = displayHelpButton; //Or false
@@ -28,13 +31,6 @@ export function initChat(
       lang === "fr"
         ? "Besoin d'aide avec ma déclaration"
         : "Need help with my declaration",
-  };
-
-  embedded_svc.settings.prepopulatedPrechatFields = {
-    FirstName: user.firstName,
-    LastName: user.lastName,
-    Email: user.email,
-    // Subject: "Hello",
   };
 
   embedded_svc.settings.extraPrechatInfo = [
@@ -127,7 +123,7 @@ export function initChat(
     {
       label: "Email",
       value: user.email,
-      transcriptFields: ["Email__c"],
+      transcriptFields: [],
       displayToAgent: true,
     },
     {
