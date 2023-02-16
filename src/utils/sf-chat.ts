@@ -17,11 +17,9 @@ export function initChat(
   embedded_svc.settings.language = lang; //For example, enter 'en' or 'en-US'
 
   embedded_svc.settings.defaultMinimizedText =
-    lang === "fr" ? "Besoin d'aide ? ON" : "Need help ? ON"; //(Defaults to Chat with an Expert)
-  embedded_svc.settings.disabledMinimizedText =
-    lang === "fr" ? "Besoin d'aide ? OFF 1" : "Need help ? OFF 1"; //(Defaults to Agent Offline)
+    lang === "fr" ? "Besoin d'aide ?" : "Need help ?"; //(Defaults to Chat with an Expert)
   embedded_svc.settings.offlineSupportMinimizedText =
-    lang === "fr" ? "Contactez-nous OFF 2" : "Contact-Us OFF 2"; //(Defaults to Agent Offline)
+    lang === "fr" ? "Contactez-nous" : "Contact-Us"; //(Defaults to Agent Offline)
 
   embedded_svc.settings.prepopulatedPrechatFields = {
     Subject:
@@ -41,21 +39,21 @@ export function initChat(
         {
           isExactMatch: true,
           fieldName: "FirstName",
-          doCreate: true,
+          doCreate: false,
           doFind: true,
           label: "FirstName",
         },
         {
           isExactMatch: true,
           fieldName: "LastName",
-          doCreate: true,
+          doCreate: false,
           doFind: true,
           label: "LastName",
         },
         {
           isExactMatch: true,
           fieldName: "Email",
-          doCreate: true,
+          doCreate: false,
           doFind: true,
           label: "Email",
         },
@@ -92,11 +90,14 @@ export function initChat(
     {
       entityName: "Account",
       showOnCreate: true,
+      linkToEntityName: "Case", // check
+      linkToEntityField: "AccountId", // check
+      saveToTranscript: "Account", // check
       entityFieldMaps: [
         {
           isExactMatch: true,
           fieldName: "Name",
-          doCreate: true,
+          doCreate: false,
           doFind: true,
           label: "LastName",
         },
@@ -188,18 +189,11 @@ const initAndHideExternalKeys = (
     if (document.getElementById("SuppliedEmail") !== null) {
       // email
       const elEmail = document.getElementById("SuppliedEmail");
-      elEmail.value = "bolt@gmail.com";
+      elEmail.value = email;
       elEmail.dispatchEvent(new Event("change", { bubbles: true }));
       const hiddenElEmail = (document.getElementsByClassName(
         "inputEmail"
       )[0].style.visibility = "hidden");
-      // subject
-      const elSubject = document.getElementById("Subject");
-      elSubject.value = defaultOfflineIssue;
-      elSubject.dispatchEvent(new Event("change", { bubbles: true }));
-      const hiddenElSubject = (document.getElementsByClassName(
-        "inputText"
-      )[1].style.visibility = "hidden");
     }
   });
 };
