@@ -181,10 +181,7 @@ export const popChatBox = () => {
   embedded_svc.bootstrapEmbeddedService();
 };
 
-const initAndHideExternalKeys = (
-  email: string,
-  defaultOfflineIssue: string
-) => {
+const initAndHideExternalKeys = (email: string) => {
   embedded_svc.addEventHandler("onAvailability", function (data) {
     if (document.getElementById("SuppliedEmail") !== null) {
       // email

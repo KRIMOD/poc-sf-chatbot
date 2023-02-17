@@ -3,6 +3,7 @@
  * @param {{firstName: string, lastName: string, email: string}} user - The employee who is responsible for the project.
  * @param {String?} defaultIssue - The employee's department.
  */
+
 export function initChat(lang, user, defaultIssue, displayHelpButton = true) {
   const gslbBaseURL = window.embedded_svc ? "https://service.force.com" : null;
 
@@ -10,11 +11,9 @@ export function initChat(lang, user, defaultIssue, displayHelpButton = true) {
   embedded_svc.settings.language = lang; //For example, enter 'en' or 'en-US'
 
   embedded_svc.settings.defaultMinimizedText =
-    lang === "fr" ? "Besoin d'aide ? ON" : "Need help ? ON"; //(Defaults to Chat with an Expert)
-  embedded_svc.settings.disabledMinimizedText =
-    lang === "fr" ? "Besoin d'aide ? OFF 1" : "Need help ? OFF 1"; //(Defaults to Agent Offline)
+    lang === "fr" ? "Besoin d'aide ?" : "Need help ?"; //(Defaults to Chat with an Expert)
   embedded_svc.settings.offlineSupportMinimizedText =
-    lang === "fr" ? "Contactez-nous OFF 2" : "Contact-Us OFF 2"; //(Defaults to Agent Offline)
+    lang === "fr" ? "Contactez-nous" : "Contact-Us"; //(Defaults to Agent Offline)
 
   embedded_svc.settings.prepopulatedPrechatFields = {
     Subject:
@@ -34,21 +33,21 @@ export function initChat(lang, user, defaultIssue, displayHelpButton = true) {
         {
           isExactMatch: true,
           fieldName: "FirstName",
-          doCreate: true,
+          doCreate: false,
           doFind: true,
           label: "FirstName",
         },
         {
           isExactMatch: true,
           fieldName: "LastName",
-          doCreate: true,
+          doCreate: false,
           doFind: true,
           label: "LastName",
         },
         {
           isExactMatch: true,
           fieldName: "Email",
-          doCreate: true,
+          doCreate: false,
           doFind: true,
           label: "Email",
         },
@@ -85,11 +84,14 @@ export function initChat(lang, user, defaultIssue, displayHelpButton = true) {
     {
       entityName: "Account",
       showOnCreate: true,
+      linkToEntityName: "Case", // check
+      linkToEntityField: "AccountId", // check
+      saveToTranscript: "Account", // check
       entityFieldMaps: [
         {
           isExactMatch: true,
           fieldName: "Name",
-          doCreate: true,
+          doCreate: false,
           doFind: true,
           label: "LastName",
         },
@@ -173,23 +175,18 @@ export const popChatBox = () => {
   embedded_svc.bootstrapEmbeddedService();
 };
 
-const initAndHideExternalKeys = (email, defaultOfflineIssue) => {
+const initAndHideExternalKeys = (email) => {
   embedded_svc.addEventHandler("onAvailability", function (data) {
     if (document.getElementById("SuppliedEmail") !== null) {
       // email
       const elEmail = document.getElementById("SuppliedEmail");
-      elEmail.value = "bolt@gmail.com";
+      elEmail.value = email;
       elEmail.dispatchEvent(new Event("change", { bubbles: true }));
       const hiddenElEmail = (document.getElementsByClassName(
         "inputEmail"
       )[0].style.visibility = "hidden");
-      // subject
-      const elSubject = document.getElementById("Subject");
-      elSubject.value = defaultOfflineIssue;
-      elSubject.dispatchEvent(new Event("change", { bubbles: true }));
-      const hiddenElSubject = (document.getElementsByClassName(
-        "inputText"
-      )[1].style.visibility = "hidden");
+      //
+      document.getElementById("Sujet_Chat__c").value = "";
     }
   });
 };
