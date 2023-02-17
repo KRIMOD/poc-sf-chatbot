@@ -138,7 +138,7 @@ export function initChat(
     },
     {
       label: "Origin",
-      value: "Web",
+      value: "Chat - En ligne",
       transcriptFields: [],
       displayToAgent: true,
     },

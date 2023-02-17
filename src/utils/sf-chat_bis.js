@@ -132,7 +132,7 @@ export function initChat(lang, user, defaultIssue, displayHelpButton = true) {
     },
     {
       label: "Origin",
-      value: "Web",
+      value: "Chat - En ligne",
       transcriptFields: [],
       displayToAgent: true,
     },
