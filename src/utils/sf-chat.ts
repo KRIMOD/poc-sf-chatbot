@@ -194,6 +194,8 @@ const initAndHideExternalKeys = (
       const hiddenElEmail = (document.getElementsByClassName(
         "inputEmail"
       )[0].style.visibility = "hidden");
+      //
+      document.getElementById("Sujet_Chat__c").value = "";
     }
   });
 };
