@@ -187,6 +187,10 @@ const initAndHideExternalKeys = (email) => {
       )[0].style.visibility = "hidden");
       //
       document.getElementById("Sujet_Chat__c").value = "";
+      document.getElementById("Sujet_Chat__c-label").innerHTML =
+        "Quelle est votre demande ?";
+      document.getElementById("SuppliedPhone-label").innerHTML =
+        "Numéro de téléphone";
     }
   });
 };
