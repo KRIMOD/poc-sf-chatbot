@@ -157,24 +157,24 @@ export function initChat(
   });
 
   embedded_svc.init(
-    "https://valobat--chatbot.sandbox.my.salesforce.com",
-    "https://valobat--chatbot.sandbox.my.site.com/callcenter",
-    gslbBaseURL || null,
-    "00DAW000001Jllp",
-    "Chat_Adherent",
+    "https://valobat.my.salesforce.com",
+    "https://valobat.my.site.com/callcenter",
+    gslbBaseURL,
+    "00D0900000B5LzF",
+    "Chat_Adherent_Group",
     {
       baseLiveAgentContentURL:
-        "https://c.la2s-core1.sfdc-urlt2q.salesforceliveagent.com/content",
-      deploymentId: "572AW000000xmBt",
-      buttonId: "573AW000000ECsX",
+        "https://c.la1-core1.sfdc-urlt2q.salesforceliveagent.com/content",
+      deploymentId: "572AX000000003Y",
+      buttonId: "573AX000000002G",
       baseLiveAgentURL:
-        "https://d.la2s-core1.sfdc-urlt2q.salesforceliveagent.com/chat",
-      eswLiveAgentDevName: "Chat_Adherent",
+        "https://d.la1-core1.sfdc-urlt2q.salesforceliveagent.com/chat",
+      eswLiveAgentDevName: "Chat_Adherent_Group",
       isOfflineSupportEnabled: true,
     }
   );
 
-  initAndHideExternalKeys(user.email, defaultIssue);
+  initAndHideExternalKeys(user.email);
 }
 
 export const popChatBox = () => {

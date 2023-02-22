@@ -6,7 +6,7 @@ export default function Home() {
     <>
       <Script
         id="sf-chat"
-        src="https://valobat--chatbot.sandbox.my.salesforce.com/embeddedservice/5.0/esw.min.js"
+        src="https://valobat.my.salesforce.com/embeddedservice/5.0/esw.min.js"
         onLoad={() => {
           initChat(
             "fr",
